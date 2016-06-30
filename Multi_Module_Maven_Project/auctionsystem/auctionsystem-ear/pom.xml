@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.national.corporation</groupId>
+   <artifactId>auctionsystem-ear</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <packaging>ear</packaging>
+   <parent>
+    <groupId>com.national.corporation</groupId>
+    <artifactId>auctionsystem</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+   <name>ear assembly</name>
+   <dependencies>      
+      <dependency>
+         <groupId>com.national.corporation</groupId>
+  		<artifactId>inventory</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>com.national.corporation</groupId>
+  		<artifactId>ordermanager</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>  
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <artifactId>maven-ear-plugin</artifactId>
+            <configuration>
+               <archive>
+                  <manifest>
+                     <addClasspath>true</addClasspath>
+                  </manifest>
+               </archive>
+               <artifactTypeMappings>
+                  <artifactTypeMapping type="gar" mapping="jar"/>
+               </artifactTypeMappings>
+            </configuration>
+         </plugin>         
+        <!-- <plugin>
+          <groupId>com.oracle.weblogic</groupId>
+          <artifactId>weblogic-maven-plugin</artifactId>
+          <version>12.1.2-0-0</version>
+          <executions>
+            Deploy the application to the server
+            <execution>
+              <phase>pre-integration-test</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+              <configuration>
+                <adminurl>t3://127.0.0.1:7001</adminurl>
+                <user>weblogic</user>
+                <password>welcome1</password>
+                <middlewareHome>/home/mark/space/maven/wls030213</middlewareHome>
+                The location of the file or directory to be deployed
+                <source>${project.build.directory}/${project.build.finalName}.${project.packaging}</source>
+                The target servers where the application is deployed
+                <targets>AdminServer</targets>
+                <verbose>true</verbose>
+                <name>${project.build.finalName}</name>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin> -->
+      </plugins>
+   </build>
+</project>

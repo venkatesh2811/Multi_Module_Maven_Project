@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC
+	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
+	"http://java.sun.com/dtd/application_1_3.dtd">
+<application>
+  <display-name>auctionsystem-ear</display-name>
+  <module>
+    <web>
+      <web-uri>inventory-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>/inventory</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>ordermanager-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>/ordermanager</context-root>
+    </web>
+  </module>
+</application>
